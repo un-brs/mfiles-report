@@ -1,0 +1,9 @@
+\begin{longtabu} to \textwidth { X[1,r] X[4,l] X[4,l] X[4,l] X[6,l] X[1,c]<{\strut}}
+\toprule
+\textbf{N} & \textbf{Name} & \textbf{Types} & \textbf{Vaults} & \textbf{Classes} & \textbf{Include to JCHM?}\\
+\midrule
+((* for name, attr in attrs|dictsort *))
+  ((( loop.index ))) & \textbf{((( name | escape_tex )))} & ((( attr.types| sort | join(', ') | escape_tex))) & ((( attr.vaults| show_vaults ))) & {\small ((( attr.classes|show_classes|escape_tex)))} & \CheckBox[name=jchm((( loop.index )))]{} \\
+((* endfor *))
+\bottomrule
+\end{longtabu}
